@@ -8,6 +8,8 @@ import { RoomsModule } from './rooms/rooms.module';
 import { PlayersModule } from './players/players.module';
 import { ScoreboardModule } from './scoreboard/scoreboard.module';
 import { AppCacheModule } from './cache/cache.module';
+import { VoiceModule } from './voice/voice.module';
+import { GamesModule } from './games/games.module';
 
 @Module({
   imports: [
@@ -18,6 +20,8 @@ import { AppCacheModule } from './cache/cache.module';
     RoomsModule,
     PlayersModule,
     ScoreboardModule,
+    VoiceModule,
+    GamesModule, // Add WebRTC Signaling Voice Gateway
   ],
   controllers: [AppController],
   providers: [AppService],
