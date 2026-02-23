@@ -1,7 +1,6 @@
 import { Module, Global } from '@nestjs/common';
 import { CacheModule } from '@nestjs/cache-manager';
 import { createKeyv } from '@keyv/redis';
-import Keyv from 'keyv';
 
 /**
  * Global cache module.
@@ -23,8 +22,7 @@ import Keyv from 'keyv';
 
         if (redisUrl) {
           console.log(`[Cache] Using Redis @ ${redisUrl}`);
-          // wrap in Keyv so @nestjs/cache-manager accepts it
-          const store = new Keyv({ store: createKeyv(redisUrl) });
+          const store = createKeyv(redisUrl);
           return { stores: [store] } as any; // eslint-disable-line
         }
 
